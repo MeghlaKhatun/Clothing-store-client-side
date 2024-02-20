@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet";
+import Navbar from "../Pages/Navbar/Navbar";
+
 const Home = () => {
     return (
         <div>
-            <h2 className="text-5xl text-yellow-800">hello world Hello</h2>
+            <Helmet>
+            <title>Home - Clothing Store </title>
+            </Helmet>
+           <Navbar></Navbar>
         </div>
     );
 };

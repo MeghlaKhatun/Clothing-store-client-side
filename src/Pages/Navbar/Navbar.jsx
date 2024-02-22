@@ -28,8 +28,9 @@ const Navbar = () => {
                                     <li><NavLink to={"/"}>Home</NavLink></li>
                                     <li><NavLink to={"/addProduct"}>Add-Product</NavLink></li>
                                     <li><NavLink to={"/myCart"}>My-Cart</NavLink></li>
-                                    <li><NavLink to={"/logIn"}>LogIn</NavLink></li>
                                     <li><NavLink to={"/registration"}>Registration</NavLink></li>
+                                    <li><NavLink to={"/logIn"}>LogIn</NavLink></li>
+                                    
                                     
 
                                 </ul>
@@ -52,6 +53,7 @@ const Navbar = () => {
                             <li><NavLink to={"/"}>Home</NavLink></li>
                             <li><NavLink to={"/addProduct"}>Add-Product</NavLink></li>
                             <li><NavLink to={"/myCart"}>My-Cart</NavLink></li>
+                            <li><NavLink to={"/registration"}>Registration</NavLink></li>
                             <li><NavLink to={"/logIn"}>LogIn</NavLink></li>
 
                         </ul>

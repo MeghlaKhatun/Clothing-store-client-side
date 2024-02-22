@@ -1,0 +1,6 @@
+nav ul li a.active{
+    padding: 8px 20px;
+    background: #48CFCE !important;
+    color: white !important;
+    font-weight: bold;
+}

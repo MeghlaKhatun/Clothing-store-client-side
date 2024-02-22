@@ -5,7 +5,7 @@ import  './Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='border-b-2 border-[#48CFCE] shadow-xl sticky top-0'>
+        <div className='border-b-2 bg-white border-[#48CFCE] shadow-xl sticky top-0'>
             <div className="max-w-[1320px] mx-auto ">
 
                 <div className="drawer">

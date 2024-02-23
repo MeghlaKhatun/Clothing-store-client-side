@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/icon/logo.png'
-import  './Navbar.css'
+import './Navbar.css'
 
 
 const Navbar = () => {
@@ -25,13 +25,13 @@ const Navbar = () => {
                             <nav className="flex-none hidden lg:block">
                                 <ul className=" flex gap-8  menu-horizontal text-black font-bold lg:text-[18px] ">
                                     {/* Navbar menu content here */}
-                                    <li><NavLink to={"/"}>Home</NavLink></li>
-                                    <li><NavLink to={"/addProduct"}>Add-Product</NavLink></li>
-                                    <li><NavLink to={"/myCart"}>My-Cart</NavLink></li>
-                                    <li><NavLink to={"/registration"}>Registration</NavLink></li>
-                                    <li><NavLink to={"/logIn"}>LogIn</NavLink></li>
-                                    
-                                    
+                                    <li className='hover:text-[#48CFCE]'><NavLink to={"/"}>Home</NavLink></li>
+                                    <li className='hover:text-[#48CFCE]'><NavLink to={"/addProduct"}>AddProduct</NavLink></li>
+                                    <li className='hover:text-[#48CFCE]'><NavLink to={"/myCart"}>MyCart</NavLink></li>
+                                    <li className='hover:text-[#48CFCE]'><NavLink to={"/registration"}>Registration</NavLink></li>
+                                    <li className='hover:text-[#48CFCE]'><NavLink to={"/logIn"}>LogIn</NavLink></li>
+
+
 
                                 </ul>
 
@@ -50,11 +50,11 @@ const Navbar = () => {
                         <li htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay "></li>
                         <ul className="menu py-10 px-4 w-80 gap-3 bg-white font-bold text-black shadow-xl">
 
-                            <li><NavLink to={"/"}>Home</NavLink></li>
-                            <li><NavLink to={"/addProduct"}>Add-Product</NavLink></li>
-                            <li><NavLink to={"/myCart"}>My-Cart</NavLink></li>
-                            <li><NavLink to={"/registration"}>Registration</NavLink></li>
-                            <li><NavLink to={"/logIn"}>LogIn</NavLink></li>
+                            <li className='hover:text-[#48CFCE]'><NavLink to={"/"}>Home</NavLink></li>
+                            <li className='hover:text-[#48CFCE]'><NavLink to={"/addProduct"}>AddProduct</NavLink></li>
+                            <li className='hover:text-[#48CFCE]'><NavLink to={"/myCart"}>MyCart</NavLink></li>
+                            <li className='hover:text-[#48CFCE]'><NavLink to={"/registration"}>Registration</NavLink></li>
+                            <li className='hover:text-[#48CFCE]'><NavLink to={"/logIn"}>LogIn</NavLink></li>
 
                         </ul>
                     </nav>

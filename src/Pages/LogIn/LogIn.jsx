@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import registration from '../../assets/images/registration.jpg'
+import logIn from '../../assets/images/login.jpg'
 import { Helmet } from "react-helmet";
 const LogIn = () => {
     return (
@@ -15,7 +15,7 @@ const LogIn = () => {
                     <div className="flex flex-row-reverse">
 
                         <div className=" hidden lg:flex lg:flex-1 ">
-                            <img className="h-full w-full rounded-bl-full" src={registration} alt="" />
+                            <img className="h-full w-full rounded-bl-full" src={logIn} alt="" />
                         </div>
 
 
@@ -34,16 +34,23 @@ const LogIn = () => {
 
                                     <div className="form-control">
                                         <label className="label">
+                                            <span className="label-text text-gray-700 font-semibold  text-[18px]">Name</span>
+                                        </label>
+                                        <input type="text" name="name" placeholder="Your Email" className="border border-gray-500 mb-2 py-3 pl-3 input-bordered outline-none" required />
+                                    </div>
+
+                                    <div className="form-control">
+                                        <label className="label">
                                             <span className="label-text text-gray-700  font-semibold  text-[18px]">Email</span>
                                         </label>
-                                        <input type="email" name="email" placeholder="Your Email" className="border border-gray-500  py-3 pl-3 input-bordered outline-none" required />
+                                        <input type="email" name="email" placeholder="Your Email" className="border border-gray-500 mb-2 py-3 pl-3 input-bordered outline-none" required />
                                     </div>
 
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text text-gray-700  text-[18px] font-semibold ">Password</span>
                                         </label>
-                                        <input type="password" name="password" placeholder="password" className="border border-gray-500 py-3 pl-3 input-bordered outline-none" required />
+                                        <input type="password" name="password" placeholder="password" className="border border-gray-500 mb-2  py-3 pl-3 input-bordered outline-none" required />
                                     </div>
 
                                     <div className="form-control mt-6">

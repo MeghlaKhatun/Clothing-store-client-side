@@ -16,8 +16,10 @@ const Registration = () => {
     const [changePassword, setChangePassword] = useState(true);
     const [verifyPassword, setVerifyPassword] = useState("")
     const changeIcon = changePassword === true ? false : true;
-    const { createUser } = useContext(AuthContext)
+    const { createUser ,googleSignIn } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
+
+
     const handleRegistration = async (e )=> {
         e.preventDefault();
         const form = e.target;
@@ -77,6 +79,26 @@ const Registration = () => {
 
     }
 
+    //google signIn
+    const handleGoogleSignIn=()=>{
+        googleSignIn()
+        .then(result => {
+            console.log(result.user);
+            Swal.fire(
+                'LogIn!',
+                'Google LogIn Successful',
+                'success'
+            )
+        })
+        .catch(error => {
+            console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops sorry...',
+                text: (`${error.message}`),
+            })
+        })
+    }
 
     return (
         <div>
@@ -152,7 +174,7 @@ const Registration = () => {
                                 </form>
                                 {/* GoogleLogIn */}
                                 <div className="flex justify-center mt-6">
-                                    <button className="py-2 md:py-3 px-10 w-full justify-center border-2 border-[#48CFCE] text-[#48CFCE] font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google SignUp</button>
+                                    <button onClick={handleGoogleSignIn} className="py-2 md:py-3 px-10 w-full justify-center border-2 border-[#48CFCE] text-[#48CFCE] font-bold flex items-center gap-3"><FcGoogle className="text-2xl"></FcGoogle> Google SignUp</button>
                                 </div>
                                 <p className="text-[16px] mt-4 text-black font-semibold text-center">Already Have An Account ? please <Link className="text-[#48CFCE] hover:underline font-bold" to="/logIn">Login</Link> </p>
 

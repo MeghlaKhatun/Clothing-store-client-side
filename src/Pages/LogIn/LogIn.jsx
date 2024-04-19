@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import logIn from '../../assets/images/login.jpg'
 import { Helmet } from "react-helmet";
+// import { useContext } from "react";
+// import { AuthContext } from "../../Provider/AuthProvider";
 const LogIn = () => {
+
+    // const {signIn}=useContext(AuthContext)
+
+
     return (
         <div>
             <Navbar></Navbar>

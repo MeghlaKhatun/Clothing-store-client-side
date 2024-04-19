@@ -6,23 +6,54 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
-import { FaRegEye,FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import useAxiosPublic from "../../Hooks/axiosPublic";
 
-
+const image_hosting_key = "db64d3896d67f4f8e108db40e0c85d9d"
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const Registration = () => {
 
     const [changePassword, setChangePassword] = useState(true);
+    const [verifyPassword, setVerifyPassword] = useState("")
     const changeIcon = changePassword === true ? false : true;
     const { createUser } = useContext(AuthContext)
-
-    const handleRegistration = e => {
+    const axiosPublic = useAxiosPublic()
+    const handleRegistration = async (e )=> {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        const photo = form.photo.files[0]
+        console.log(photo,name);
+
+        const imageFile = { image: photo}
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+
+        console.log(res.data.data.display_url)
+
+        setVerifyPassword("");
+        //verify password condition
+        if (password.length < 6) {
+            setVerifyPassword("Password should be at least 6 characters");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setVerifyPassword("Password must be one character uppercase");
+            return;
+        }
+        else if (!/[!@#$%^&*()_+{}[\]:;<>,.?/~\\-]/.test(password)) {
+            setVerifyPassword("Password must have one character special key word");
+            return
+        }
+        else if (!/\d/.test(password)) {
+            setVerifyPassword("Password must contain at least one numeric character.");
+            return;
+        }
 
         //create user
 
@@ -53,8 +84,14 @@ const Registration = () => {
             <Helmet>
                 <title>Registration - Clothing Store</title>
             </Helmet>
-            <div className="px-10 lg:px-0">
-                <div className="max-w-[800px] mx-auto  shadow-lg flex items-center justify-center mt-10">
+
+            <div className="md:px-10 lg:px-0 ">
+                {
+                    verifyPassword && <p className="text-xl text-red-700 font-bold mb-6 text-center md:mt-8 lg:mt-6">{verifyPassword}</p>
+                }
+
+                <div className="max-w-[800px] mx-auto flex items-center justify-center mt-10 shadow-2xl">
+
                     <div className="flex ">
 
                         <div className=" hidden lg:flex lg:flex-1 ">
@@ -64,10 +101,7 @@ const Registration = () => {
 
                         <div className="flex-1">
                             <div className="  p-10 r">
-                                {/* 
-                            {
-                                verifyPassword && <p className="text-xl text-white font-bold mb-6">{verifyPassword}</p>
-                            } */}
+
 
 
                                 <h2 className="text-xl md:text-2xl lg:text-3xl text-black text-center font-bold mb-3 uppercase">Registration</h2>
@@ -99,7 +133,7 @@ const Registration = () => {
                                                 setChangePassword(changeIcon);
                                             }}
                                         >
-                                            {changeIcon ? <FaRegEye /> : <FaEyeSlash />}
+                                            {changeIcon ? <FaEye /> : <FaEyeSlash />}
                                         </span>
 
                                     </div>
